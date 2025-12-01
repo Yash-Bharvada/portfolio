@@ -176,19 +176,11 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
   }, [ready, anchorMap, itemCenters])
 
   return (
-    <nav
-      className={cn(
-        "fixed left-0 right-0 z-[9999] md:top-5 md:bottom-auto bottom-5",
-        className
-      )}
-      role="navigation"
-      aria-label="Main"
-      style={{ paddingBottom: "calc(env(safe-area-inset-bottom) / 2)" }}
-    >
-      <div className="flex justify-center px-3 md:px-0">
+    <nav className={cn("fixed top-5 left-0 right-0 z-[9999]", className)} role="navigation" aria-label="Main">
+      <div className="flex justify-center pt-6">
         <motion.div 
           ref={navRef}
-          className="flex items-center gap-2 md:gap-3 bg-black/50 border border-white/10 backdrop-blur-lg py-2 px-2 rounded-full shadow-lg relative max-w-[95%] md:max-w-max overflow-x-auto"
+          className="flex items-center gap-3 bg-black/50 border border-white/10 backdrop-blur-lg py-2 px-2 rounded-full shadow-lg relative"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
@@ -353,7 +345,7 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Icon size={22} strokeWidth={2.5} />
+                  <Icon size={18} strokeWidth={2.5} />
                 </motion.span>
           
                 <AnimatePresence>
