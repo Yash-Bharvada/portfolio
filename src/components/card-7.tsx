@@ -41,6 +41,21 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
   ) => {
     const [src, setSrc] = React.useState(imageUrl);
     return (
+      /**
+       * Style Guide: TravelCard
+       *
+       * Mobile (<=768px):
+       * - Entire card surface is clickable via absolute overlay link.
+       * - CTA button is hidden to avoid overlap; tap provides subtle highlight.
+       * - Hover translations disabled; layout remains static.
+       *
+       * Tablet/Desktop (>=769px):
+       * - CTA button reveals on hover; card content translates up.
+       * - Full desktop interactions preserved.
+       *
+       * Z-index:
+       * - Content sits below overlay (mobile) and below CTA panel (desktop) using z-10.
+       */
       <div
         ref={ref}
         className={cn(
@@ -87,7 +102,7 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
             </div>
           </div>
 
-          <div className="absolute left-0 w-full p-4 md:p-6 transition-all duration-500 ease-in-out bottom-0 opacity-100 md:-bottom-20 md:opacity-0 md:group-hover:bottom-0 md:group-hover:opacity-100 z-10">
+          <div className="hidden md:block absolute left-0 w-full p-6 transition-all duration-500 ease-in-out md:-bottom-20 md:opacity-0 md:group-hover:bottom-0 md:group-hover:opacity-100 z-10">
             <div className="flex items-end justify-between">
               <div>
                 {typeof price === "number" && (
@@ -110,6 +125,18 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
               )}
             </div>
           </div>
+
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${title}`}
+              className="md:hidden absolute inset-0 z-30"
+            >
+              <span className="absolute inset-0 bg-white/10 opacity-0 active:opacity-100 transition-opacity" />
+            </a>
+          )}
         </div>
       </div>
     );
