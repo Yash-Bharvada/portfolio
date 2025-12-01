@@ -178,6 +178,7 @@ const Gallery4 = ({
                 className={`h-2 w-2 rounded-full transition-colors ${
                   currentSlide === index ? "bg-primary" : "bg-primary/20"
                 }`}
+                style={{ minHeight: 0 }}
                 onClick={() => carouselApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
