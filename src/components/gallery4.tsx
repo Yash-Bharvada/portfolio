@@ -175,10 +175,18 @@ const Gallery4 = ({
             {Array.from({ length: snapCount }).map((_, index) => (
               <button
                 key={index}
-                className={`h-2 w-2 rounded-full transition-colors ${
+                className={`inline-flex items-center justify-center rounded-full transition-colors ${
                   currentSlide === index ? "bg-primary" : "bg-primary/20"
                 }`}
-                style={{ minHeight: 0 }}
+                style={{
+                  height: "0.5rem",
+                  width: "0.5rem",
+                  padding: 0,
+                  margin: 0,
+                  border: "none",
+                  appearance: "none",
+                  lineHeight: 1,
+                }}
                 onClick={() => carouselApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
