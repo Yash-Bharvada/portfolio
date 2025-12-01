@@ -74,7 +74,7 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
              )}
           </div>
           
-          <div className="space-y-4 transition-transform duration-500 ease-in-out group-hover:-translate-y-16">
+          <div className="space-y-4 transition-transform duration-500 ease-in-out md:group-hover:-translate-y-16">
             <div>
               <h3 className="text-4xl md:text-5xl font-extrabold text-white">{title}</h3>
               <p className="text-sm text-white/80">{location}</p>
@@ -87,7 +87,7 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
             </div>
           </div>
 
-          <div className="absolute -bottom-20 left-0 w-full p-6 opacity-0 transition-all duration-500 ease-in-out group-hover:bottom-0 group-hover:opacity-100">
+          <div className="absolute left-0 w-full p-4 md:p-6 transition-all duration-500 ease-in-out bottom-0 opacity-100 md:-bottom-20 md:opacity-0 md:group-hover:bottom-0 md:group-hover:opacity-100 z-10">
             <div className="flex items-end justify-between">
               <div>
                 {typeof price === "number" && (
@@ -98,13 +98,13 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
                 )}
               </div>
               {href ? (
-                <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
+                <Button asChild size="lg" className="bg-white text-black hover:bg-white/90" style={{ minHeight: 48 }}>
                   <a href={href} target="_blank" rel="noopener noreferrer">
                     {ctaLabel ?? "View"} <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               ) : (
-                <Button onClick={onBookNow} size="lg" className="bg-white text-black hover:bg-white/90">
+                <Button onClick={onBookNow} size="lg" className="bg-white text-black hover:bg-white/90" style={{ minHeight: 48 }}>
                   {ctaLabel ?? "View"} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               )}
