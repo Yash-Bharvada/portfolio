@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
+
+Modern personal portfolio built with Next.js 16, React 19, and Tailwind CSS 4. Features an animated hero, responsive project cards, a gallery carousel, and a contact section — optimized for mobile-first usability and accessibility.
+
+## Overview
+
+- Animated hero background with dynamic SVG paths and a prominent call to action.
+- Projects grid using interactive cards with hover transitions on desktop and full-card tap on mobile.
+- Carousel gallery with round navigation dots and smooth snapping.
+- Contact section with accessible inputs and responsive layout.
+
+## Tech Stack
+
+- Framework: Next.js `16.0.3`
+- UI: React `19.2.0`
+- Styling: Tailwind CSS `^4`
+- Animations: Framer Motion `^12`, GSAP `^3`
+- UI Primitives: Radix UI (`@radix-ui/*`), Lucide Icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js `>=18`
+- npm `>=10`
+
+### Installation
+
+```bash
+git clone <your-repo-url>
+cd portfolio
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Linting
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Features & Files
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Hero background and CTA:
+  - Background paths component in `src/components/ui/background-paths.tsx`
+  - Button links to projects with proper touch size and visual feedback
+  - Mobile-only background scaling applied to balance the hero with heading
+- Home page composition:
+  - `src/app/page.tsx` assembles hero, about, education, projects, gallery, and contact sections
+- Project cards:
+  - `src/components/card-7.tsx` provides hover-lift interactions on desktop and a full-card tap overlay on mobile
+  - Maintains z-index layering to avoid visual overlaps
+- Gallery carousel:
+  - `src/components/gallery4.tsx` — round dots, smooth transitions, accessible controls
+- Contact section and inputs:
+  - `src/components/contact.tsx`
+  - `src/components/ui/checkbox.tsx` — compact checkboxes without inherited min-heights
+- Global styles and tokens:
+  - `src/app/globals.css` — design tokens, fluid typography, scrollbar styling
 
-## Deploy on Vercel
+## Responsive Behavior
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Mobile (≤768px):
+  - Entire project card is tappable; subtle highlight on tap
+  - CTA button hidden (overlay tap handles navigation)
+  - Background SVG scaled up for visual balance
+- Tablet (769–1024px) and Desktop (>1024px):
+  - Hover-reveal CTA and content lift transitions on cards
+  - Standard background scale and animations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Accessibility
+
+- Touch targets meet the 48×48px minimum on interactive elements
+- Buttons and links include descriptive labels
+- Color contrast adheres to a dark/light theme with high readability
+
+## Deployment
+
+- Recommended: Vercel
+- Ensure Node.js version matches local (`>=18`)
+- Environment variables: none required for baseline portfolio
+
+## Project Structure
+
+```
+portfolio/
+├─ src/
+│  ├─ app/            # Next.js App Router pages and global styles
+│  ├─ components/     # UI components (cards, gallery, inputs, footer)
+│  └─ lib/            # Utilities (e.g., class name helpers)
+├─ package.json
+├─ README.md
+└─ ...
+```
+
+## Troubleshooting
+
+- Tailwind CSS 4: Ensure `src/app/globals.css` imports `@import "tailwindcss";`
+- Hero background scaling: Controlled via utility classes on the SVG (mobile-only)
+- Images: External Unsplash URLs may throttle; fallback URLs are set in cards
+- Node version: Use `nvm` to match `>=18` if build errors arise
+
+## Contributing
+
+- Fork the repo and create feature branches
+- Run `npm run lint` before submitting PRs
+- Keep mobile-first and accessibility requirements intact
+
+## License
+
+- Add your license details here (MIT, Apache-2.0, or proprietary)
+
