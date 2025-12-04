@@ -115,48 +115,74 @@ export default function Home() {
                     title: "FloatChat",
                     description:
                       "Natural-language exploration and visualization of ARGO ocean data using RAG.",
-                    href: "#",
-                    image: "",
+                    href: "https://github.com/Dhruvgabani7/FloatChat",
+                    image: "/floatchat.jpg",
+                    badges: ["RAG", "LLM", "Data Viz"],
                   },
                   {
                     id: "yolov8-movement",
                     title: "Movement Detection (YOLOv8)",
                     description:
                       "Behavior tracking model identifying looking around, waving, and unusual activity.",
-                    href: "#",
-                    image: "",
+                    href: "https://github.com/Yash-Bharvada/YOLOv8",
+                    image: "/yolo.jpg",
+                    badges: ["Python", "YOLOv8", "Computer Vision"],
                   },
                   {
                     id: "ser",
                     title: "Speech Emotion Recognition",
                     description:
                       "Classifies emotions from speech using MFCC features and Random Forest.",
-                    href: "#",
-                    image: "",
+                    href: "https://ser-wav2vec.vercel.app/",
+                    image: "/ser.png",
+                    badges: ["Speech", "Wav2Vec", "Web"],
                   },
                   {
                     id: "diabetes",
                     title: "Early Diabetes Detection",
                     description:
                       "Predictive model using classification algorithms on medical datasets.",
-                    href: "#",
-                    image: "",
+                    href: "https://early-diatetes-prediction.streamlit.app/",
+                    image: "/edp.jpg",
+                    badges: ["Streamlit", "ML", "Healthcare"],
                   },
                   {
                     id: "supply-chain",
                     title: "Supply Chain Management",
                     description:
                       "Real-time inventory and logistics tracking to streamline operations.",
-                    href: "#",
-                    image: "",
+                    href: "https://github.com/PrinceDiyora/Internship-Project",
+                    image: "/scms.jpg",
+                    badges: ["Python", "Django REST", "PyQt"],
                   },
                   {
                     id: "stackit",
                     title: "StackIt",
                     description:
                       "Reddit-style dev forum for queries, solutions, and discussions; Odoo Hackathon 2025 R1 PS.",
-                    href: "#",
-                    image: "",
+                    href: "https://github.com/KushalvDesai/stackit-1602",
+                    image: "/stackit.jpg",
+                    badges: ["Next.js", "NestJS", "MongoDB"],
+                  },
+                  {
+                    id: "lan-messenger",
+                    title: "LAN-Based Messenger",
+                    description:
+                      "Flask + Socket.IO chat app with auth, emojis, file sharing, and basic XOR encryption for educational use.",
+                    href: "https://github.com/23CS020DhadukJeet/Lan-Based-Messenger",
+                    image: "/lan-messenger.jpg",
+                    badges: ["Flask", "Socket.IO", "Python"],
+                    ctaLabel: "View",
+                  },
+                  {
+                    id: "quickfolio",
+                    title: "QuickFolio",
+                    description:
+                      "No-code MERN portfolio generator to create and publish professional portfolios in minutes.",
+                    href: "https://github.com/Yash-Bharvada/QuickFolio",
+                    image: "/quickfolio.jpg",
+                    badges: ["MERN", "React", "Node", "MongoDB"],
+                    ctaLabel: "View",
                   },
                 ]}
               />

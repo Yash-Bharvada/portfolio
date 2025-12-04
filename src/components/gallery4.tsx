@@ -17,6 +17,8 @@ export interface Gallery4Item {
   description: string;
   href: string;
   image: string;
+  badges?: string[];
+  ctaLabel?: string;
 }
 
 export interface Gallery4Props {
@@ -84,6 +86,7 @@ const Gallery4 = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [snapCount, setSnapCount] = useState(0);
   const [failed, setFailed] = useState<Record<string, boolean>>({});
+  const [loaded, setLoaded] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (!carouselApi) {
@@ -130,7 +133,7 @@ const Gallery4 = ({
                 key={item.id}
                 className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
               >
-                <a href={item.href} className="group rounded-xl">
+                <a href={item.href} className="group rounded-xl" aria-label={`Open ${item.title}`}>
                   <div className="group relative h-full min-h-[18rem] max-w-full overflow-hidden rounded-xl md:aspect-[4/3] lg:aspect-[16/10]">
                     {failed[item.id] || !item.image ? (
                       <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-fuchsia-600 via-indigo-600 to-emerald-500" />
@@ -139,8 +142,14 @@ const Gallery4 = ({
                         src={item.image}
                         alt={item.title}
                         className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                        onLoad={() => setLoaded((prev) => ({ ...prev, [item.id]: true }))}
                         onError={() => setFailed((prev) => ({ ...prev, [item.id]: true }))}
                       />
+                    )}
+                    {!failed[item.id] && item.image && !loaded[item.id] && (
+                      <div className="absolute inset-0 bg-neutral-800/40 animate-pulse" />
                     )}
                     <div className="absolute inset-0 h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-4 text-white md:p-6">
@@ -150,8 +159,19 @@ const Gallery4 = ({
                       <div className="mb-6 text-sm text-white/90 line-clamp-2 md:mb-8 lg:mb-7">
                         {item.description}
                       </div>
+                      {item.badges && item.badges.length > 0 && (
+                        <div className="mb-4 flex flex-wrap gap-2">
+                          {item.badges.map((b, i) => (
+                            <span key={`${item.id}-badge-${i}`} className="inline-flex items-center rounded-full bg-white/10 text-white/90 px-2 py-1 text-xs backdrop-blur-sm border border-white/10">
+                              {b}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                       <div className="flex items-center text-sm text-white">
-                        Read more{" "}
+                        <span className="inline-flex items-center rounded-md bg-white text-black px-3 py-1 font-medium">
+                          {item.ctaLabel ?? "View"}
+                        </span>
                         <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
