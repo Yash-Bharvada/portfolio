@@ -12,6 +12,7 @@ import { Typewriter } from "@/components/ui/typewriter-text";
 import { Button } from "@/components/ui/button";
 import { ContactSection } from "@/components/contact";
 import EducationJourney from "@/components/education-journey";
+import AchievementsSection from "@/components/achievements";
 
 export default function Home() {
   return (
@@ -188,6 +189,9 @@ export default function Home() {
               />
             </div>
           </div>
+        </section>
+        <section id="achievements" className="bg-neutral-950">
+          <AchievementsSection />
         </section>
         <section id="contact" className="bg-neutral-950">
           <ContactSection

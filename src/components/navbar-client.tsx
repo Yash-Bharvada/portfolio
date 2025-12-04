@@ -1,6 +1,6 @@
 "use client";
 import { AnimeNavBar } from "@/components/ui/anime-navbar";
-import { Home, FolderKanban, User, Mail, GraduationCap, Menu, X } from "lucide-react";
+import { Home, FolderKanban, User, Mail, GraduationCap, Menu, X, Award } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 
@@ -10,6 +10,7 @@ export default function NavbarClient() {
     { name: "About", url: "#about", icon: User },
     { name: "Journey", url: "#education", icon: GraduationCap },
     { name: "Projects", url: "#projects", icon: FolderKanban },
+    { name: "Achievements", url: "#achievements", icon: Award },
     { name: "Contact", url: "#contact", icon: Mail },
   ];
 

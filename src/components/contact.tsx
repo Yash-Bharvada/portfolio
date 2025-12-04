@@ -55,6 +55,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     message: '',
     projectType: [],
   });
+  const [status, setStatus] = React.useState<"idle"|"loading"|"success"|"error">("idle");
+  const [feedback, setFeedback] = React.useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -72,11 +74,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit?.(formData);
-    console.log("Form submitted:", formData);
-    // You might want to add a success message or clear the form here
+    try {
+      setStatus("loading");
+      setFeedback("");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const json = await res.json();
+      if (res.ok && json?.ok) {
+        setStatus("success");
+        setFeedback("Message sent successfully.");
+        setFormData({ name: '', email: '', message: '', projectType: [] });
+      } else {
+        setStatus("error");
+        setFeedback("Failed to send message.");
+      }
+    } catch {
+      setStatus("error");
+      setFeedback("Failed to send message.");
+    }
   };
 
   const projectTypeOptions = [
@@ -178,9 +199,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" disabled={status === "loading"}>
                 Send a message
               </Button>
+              {feedback && (
+                <p className="text-sm mt-2 text-muted-foreground">{feedback}</p>
+              )}
             </form>
           </div>
         </div>

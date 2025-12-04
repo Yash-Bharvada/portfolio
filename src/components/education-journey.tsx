@@ -37,13 +37,13 @@ const educationData: EducationNode[] = [
   },
   {
     id: 3,
-    title: "Bachelor's in Computer Science",
-    grade: '9.3 CGPA',
+    title: "Bachelor's in Computer Science 5th SEM",
+    grade: '9.32 CGPA',
     institution: 'CHARUSAT University',
     side: 'right',
     icon: <GraduationCap className="w-6 h-6" />,
     color: 'bg-purple-500',
-    href: 'https://example.com/bachelors-transcript'
+    href: 'https://drive.google.com/file/d/1AMosoVbKuCXN-tmuN3whMx9NxiwPSahI/view?usp=sharing'
   },
   {
     id: 4,
@@ -57,13 +57,13 @@ const educationData: EducationNode[] = [
   },
   {
     id: 5,
-    title: "Paid Intership as Software Developer",
+    title: "Intership as Full Stack Developer Trainee",
     grade: '1 month',
-    institution: 'Elite Infotech',
+    institution: 'Elite Infotec',
     side: 'right',
     icon: <Brain className="w-6 h-6" />,
     color: 'bg-pink-500',
-    href: 'https://example.com/elite-infotech-internship'
+    href: 'https://drive.google.com/file/d/16iq73XXLiLPZS8bT8q3aZWhYInVjxS0B/view?usp=sharing'
   },
 ];
 

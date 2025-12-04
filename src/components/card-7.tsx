@@ -103,23 +103,15 @@ const TravelCard = React.forwardRef<HTMLDivElement, TravelCardProps>(
           </div>
 
           <div className="hidden md:block absolute left-0 w-full p-6 transition-all duration-500 ease-in-out md:-bottom-20 md:opacity-0 md:group-hover:bottom-0 md:group-hover:opacity-100 z-10">
-            <div className="flex items-end justify-between">
-              <div>
-                {typeof price === "number" && (
-                  <span className="text-4xl font-bold text-white">{price}</span>
-                )}
-                {pricePeriod && (
-                  <span className="text-white/80"> {pricePeriod}</span>
-                )}
-              </div>
+            <div className="flex items-end justify-end">
               {href ? (
-                <Button asChild size="lg" className="bg-white text-black hover:bg-white/90" style={{ minHeight: 48 }}>
-                  <a href={href} target="_blank" rel="noopener noreferrer">
+                <Button asChild variant="link" className="cta-link text-lg">
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`View ${title}`}>
                     {ctaLabel ?? "View"} <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               ) : (
-                <Button onClick={onBookNow} size="lg" className="bg-white text-black hover:bg-white/90" style={{ minHeight: 48 }}>
+                <Button onClick={onBookNow} variant="link" className="cta-link text-lg" aria-label="View">
                   {ctaLabel ?? "View"} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               )}

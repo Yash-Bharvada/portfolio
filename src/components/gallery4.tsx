@@ -151,12 +151,12 @@ const Gallery4 = ({
                     {!failed[item.id] && item.image && !loaded[item.id] && (
                       <div className="absolute inset-0 bg-neutral-800/40 animate-pulse" />
                     )}
-                    <div className="absolute inset-0 h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 h-full bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-4 text-white md:p-6">
-                      <div className="mb-2 pt-3 text-base font-bold md:mb-3 md:pt-3 lg:pt-3">
+                      <div className="mb-2 pt-3 text-lg font-semibold md:mb-3 md:pt-3 lg:pt-3">
                         {item.title}
                       </div>
-                      <div className="mb-6 text-sm text-white/90 line-clamp-2 md:mb-8 lg:mb-7">
+                      <div className="mb-6 text-sm md:text-[0.95rem] text-white/95 leading-relaxed line-clamp-2 md:mb-8 lg:mb-7">
                         {item.description}
                       </div>
                       {item.badges && item.badges.length > 0 && (
@@ -168,11 +168,11 @@ const Gallery4 = ({
                           ))}
                         </div>
                       )}
-                      <div className="flex items-center text-sm text-white">
-                        <span className="inline-flex items-center rounded-md bg-white text-black px-3 py-1 font-medium">
+                      <div className="absolute bottom-3 right-3 flex items-center text-sm">
+                        <span className="cta-link inline-flex items-center underline-offset-4">
                           {item.ctaLabel ?? "View"}
+                          <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                         </span>
-                        <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
                   </div>
