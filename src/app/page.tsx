@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { ContactSection } from "@/components/contact";
 import EducationJourney from "@/components/education-journey";
 import AchievementsSection from "@/components/achievements";
+import TechStackSection from "@/components/tech-stack";
 
 export default function Home() {
   return (
@@ -67,6 +68,9 @@ export default function Home() {
               />
             </div>
           </div>
+        </section>
+        <section id="tech-stack" className="bg-neutral-950">
+          <TechStackSection />
         </section>
         <section id="education" className="bg-neutral-950">
           <EducationJourney />
@@ -200,8 +204,8 @@ export default function Home() {
             contactEmail="yashbharvada4@gmail.com"
           />
           <Footer
-            logo={<div className="h-7 w-7 rounded-full bg-black dark:bg-white" />}
-            brandName="Portfolio"
+            logo={<span className="text-white font-bold text-lg"></span>}
+            brandName="Yash Bharvada"
             socialLinks={[
               {
                 icon: <Github className="h-4 w-4" />,
@@ -229,7 +233,7 @@ export default function Home() {
               { href: "#privacy", label: "Privacy" },
               { href: "#terms", label: "Terms" },
             ]}
-            copyright={{ text: "© 2025 Portfolio" }}
+            copyright={{ text: "© 2025 Portfolio - Yash Bharvada" }}
           />
         </section>
         

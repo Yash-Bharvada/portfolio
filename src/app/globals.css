@@ -178,6 +178,11 @@
   --cta-link-hover-fg: oklch(0.92 0 0);
 }
 
+@keyframes slider-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
